@@ -2,7 +2,7 @@
 #' 
 #' @export
 #' @rdname map
-map_lst <- function (x, f, ...) {
+map <- function (x, f, ...) {
   ans <- lapply(x, f)
   if (!is.null(names(ans))) return(ans)
   names(ans) <- as.character(x)

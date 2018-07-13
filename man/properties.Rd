@@ -6,6 +6,7 @@
 \alias{is_error}
 \alias{is_atomic_class}
 \alias{is_recorded_plot}
+\alias{is_index_of}
 \title{Accessing properties.}
 \usage{
 has_name(x, name)
@@ -17,6 +18,8 @@ is_error(x)
 is_atomic_class(x)
 
 is_recorded_plot(x)
+
+is_index_of(i, x)
 }
 \description{
 Accessing properties.
