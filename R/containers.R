@@ -12,7 +12,7 @@ choose_data <- function (..., data) {
 #' 
 #' @export
 #' @rdname containers
-vector <- function (..., data = list()) {
+new_vector <- function (..., data = list()) {
   data <- choose_data(..., data = data)
   proto(expr = {
     values    <- data
@@ -27,7 +27,7 @@ vector <- function (..., data = list()) {
 
 #' @export
 #' @rdname containers
-map <- function (..., data = list()) {
+new_map <- function (..., data = list()) {
   data <- choose_data(..., data = data)
   stopifnot(is_all_named(data))
   
