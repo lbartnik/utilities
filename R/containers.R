@@ -10,6 +10,8 @@ choose_data <- function (..., data) {
 
 #' STL-like containers.
 #' 
+#' @importFrom proto proto
+#' 
 #' @export
 #' @rdname containers
 new_vector <- function (..., data = list()) {
@@ -25,6 +27,8 @@ new_vector <- function (..., data = list()) {
   })
 }
 
+#' @importFrom proto proto
+#' 
 #' @export
 #' @rdname containers
 new_map <- function (..., data = list()) {
