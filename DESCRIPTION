@@ -22,6 +22,7 @@ Collate:
   'cat.R'
   'containers.R'
   'debug.R'
+  'defaults.R'
   'indexing.R'
   'lists.R'
   'map.R'

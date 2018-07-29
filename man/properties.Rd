@@ -7,6 +7,7 @@
 \alias{is_atomic_class}
 \alias{is_recorded_plot}
 \alias{is_index_of}
+\alias{\%nin\%}
 \title{Accessing properties.}
 \usage{
 has_name(x, name)
@@ -20,6 +21,8 @@ is_atomic_class(x)
 is_recorded_plot(x)
 
 is_index_of(i, x)
+
+x \%nin\% table
 }
 \description{
 Accessing properties.

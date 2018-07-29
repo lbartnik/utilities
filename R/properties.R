@@ -29,3 +29,7 @@ is_index_of <- function (i, x) {
   if (is.numeric(i)) return(i > 0 && i <= length(x))
   i %in% names(x)
 }
+
+#' @export
+#' @rdname properties
+`%nin%` <- function (x, table) match(x, table, nomatch = 0L) == 0L
