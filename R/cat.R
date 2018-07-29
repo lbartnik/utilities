@@ -1,6 +1,8 @@
 #' Colored cat.
 #' 
 #' @importFrom stringi stri_paste
+#' 
+#' @export
 #' @rdname ccat
 cpaste <- function (..., sep = ' ', default = 'default')
 {
