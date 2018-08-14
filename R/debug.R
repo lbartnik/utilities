@@ -1,5 +1,8 @@
+# this function is called only from "test-debug.R"
+test_guard <- function () guard()
+
 log <- function (level, ...) {
-  ccat0("red", '[', level, '] ', ..., '\n')
+  ccat0(default = "red", '[', level, '] ', ..., '\n')
 }
 
 #' Debug utilities.
@@ -7,14 +10,14 @@ log <- function (level, ...) {
 #' @export
 #' @rdname debug
 dbg <- function (...) {
-  if (isTRUE(getOption("repository.debug"))) log("DEBUG", ...)
+  if (isTRUE(getOption("utilities.debug"))) log("DEBUG", ...)
 }
 
 #' @export
 #' @rdname debug
 guard <- function () {
   x <- sys.call(-1)[[1]]
-  fname <- if (is.symbol(x)) deparse(x) else '<unnamed>'
+  fname <- if (is.symbol(x) || is_double_colon(x[[1]])) deparse(x) else '<unnamed>'
   dbg("-> ", fname, '()')
   
   parent <- sys.frame(sys.parent(1))
