@@ -22,3 +22,12 @@ test_that("guard from a double-colon function", {
                 "\\[DEBUG\\] -> utilities::test_guard\\(\\)\n\\[DEBUG\\] <- utilities::test_guard\\(\\)")
 })
 
+test_that("guard from a closure", {
+  opt <- options(utilities.debug = TRUE)
+  on.exit(options(opt), add = TRUE)
+  
+  e <- environment()
+  f <- function () guard()
+  expect_output(do.call(f, list(), envir = e),
+                "\\[DEBUG\\] -> <unnamed>\\(\\)\n\\[DEBUG\\] <- <unnamed>\\(\\)")
+})

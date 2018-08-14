@@ -17,7 +17,12 @@ dbg <- function (...) {
 #' @rdname debug
 guard <- function () {
   x <- sys.call(-1)[[1]]
-  fname <- if (is.symbol(x) || is_double_colon(x[[1]])) deparse(x) else '<unnamed>'
+  
+  fname <- '<unnamed>'
+  if (is.symbol(x) || (is.language(x) && is_double_colon(x[[1]]))) {
+    fname <- deparse(x)
+  }
+  
   dbg("-> ", fname, '()')
   
   parent <- sys.frame(sys.parent(1))
