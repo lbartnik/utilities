@@ -8,7 +8,7 @@
 \usage{
 dbg(...)
 
-guard()
+guard(fname = NULL)
 
 stopif(...)
 }

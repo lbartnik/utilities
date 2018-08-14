@@ -15,14 +15,18 @@ dbg <- function (...) {
 
 #' @export
 #' @rdname debug
-guard <- function () {
-  x <- sys.call(-1)[[1]]
+guard <- function (fname = NULL) {
+  if (is.null(fname)) {
+    x <- sys.call(-1)[[1]]
   
-  fname <- '<unnamed>'
-  if (is.symbol(x) || (is.language(x) && is_double_colon(x[[1]]))) {
-    fname <- deparse(x)
+    fname <- '<unnamed>'
+    if (is.symbol(x) || (is.language(x) && is_double_colon(x[[1]]))) {
+      fname <- deparse(x)
+    }
   }
-  
+
+  stopifnot(is_nonempty_string(fname))
+
   dbg("-> ", fname, '()')
   
   parent <- sys.frame(sys.parent(1))

@@ -35,3 +35,5 @@ is_index_of <- function (i, x) {
 `%nin%` <- function (x, table) match(x, table, nomatch = 0L) == 0L
 
 is_double_colon <- function (x) identical(x, quote(`::`))
+
+is_nonempty_string <- function (x) is.character(x) && identical(length(x), 1L) && nchar(x)
