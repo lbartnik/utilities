@@ -1,0 +1,2 @@
+* check the package in dbg() and guard() and verify if <package>.debug
+  is set to TRUE 
