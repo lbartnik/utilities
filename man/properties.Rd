@@ -24,6 +24,15 @@ is_index_of(i, x)
 
 x \%nin\% table
 }
+\arguments{
+\item{x}{Object to be checked.}
+
+\item{name}{Name that \code{x} is supposed to have.}
+
+\item{i}{Index \code{x} is supposed to have.}
+
+\item{table}{Container where \code{x} is not supposed to be present.}
+}
 \description{
 Accessing properties.
 }

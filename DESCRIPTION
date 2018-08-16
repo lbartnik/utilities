@@ -17,6 +17,7 @@ Imports:
   stringi
 Suggests:
   devtools,
+  knitr,
   testthat
 Collate:
   'cat.R'

@@ -6,11 +6,19 @@
 \alias{is_all_named}
 \title{Working with names.}
 \usage{
-with_names(lst, names)
+with_names(x, names)
 
-all_named(lst)
+all_named(x)
 
 is_all_named(x)
+}
+\arguments{
+\item{x}{Object to check or set \code{names} on.}
+
+\item{names}{Names to set on \code{x}.}
+}
+\value{
+\code{x} with \code{names} set as names.
 }
 \description{
 Working with names.

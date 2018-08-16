@@ -1,5 +1,8 @@
 #' Indexing.
 #' 
+#' @param x Object to be indexed.
+#' @param n Index value.
+#'
 #' @export
 #' @rdname indexing
 nth <- function(x, n) {
@@ -18,3 +21,4 @@ first <- function(x) nth(x, 1)
 #' @export
 #' @rdname indexing
 second <- function(x) nth(x, 2)
+

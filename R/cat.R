@@ -1,10 +1,14 @@
 #' Colored cat.
 #' 
 #' @importFrom stringi stri_paste
+#'
+#' @param ... Strings to be printed; optionally named with color names.
+#' @param sep Separator.
+#' @param default Default color; `"default"` means no color.
 #' 
 #' @export
-#' @rdname ccat
-cpaste <- function (..., sep = ' ', default = 'default')
+#' @rdname cpaste
+cpaste <- function (..., sep = ' ', default = "default")
 {
   cat_chunk <- function (color, chunk, sep) {
     if (is_empty(chunk)) return('')
@@ -37,23 +41,30 @@ cpaste <- function (..., sep = ' ', default = 'default')
   stri_paste(chunks, collapse = '')
 }
 
+#' Colored cat().
+#'
+#' @param ... Strings passed to [cpaste()].
+#' @param sep Separator.
+#' @param default Default color; `"default"` means no special color.
+#'
 #' @export
 #' @rdname ccat
-cat0 <- function (..., sep = '') cat(..., sep = sep)
+cat0 <- function (..., sep = '', default = "default") cat(..., sep = sep, default = default)
 
 #' @export
 #' @rdname ccat
-ccat <- function (..., sep = ' ', default = 'default') cat(cpaste(..., sep = sep, default = default))
+ccat <- function (..., sep = ' ', default = "default") cat(cpaste(..., sep = sep, default = default))
 
 #' @export
 #' @rdname ccat
-ccat0 <- function (..., default = 'default') ccat(..., sep = '', default = default)
+ccat0 <- function (..., default = "default") ccat(..., sep = '', default = default)
 
 #' @importFrom rlang inform
 #' @export
 #' @rdname ccat
-cinform <- function (..., sep = ' ', default = 'default') inform(cpaste(..., sep = sep, default = default))
+cinform <- function (..., sep = ' ', default = "default") inform(cpaste(..., sep = sep, default = default))
 
 #' @export
 #' @rdname ccat
-cinform0 <- function (..., default = 'default') cinform(..., sep = '', default = default)
+cinform0 <- function (..., default = "default") cinform(..., sep = '', default = default)
+

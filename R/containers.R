@@ -9,6 +9,9 @@ choose_data <- function (..., data) {
 
 
 #' STL-like containers.
+#'
+#' @param ... Elements for the container, named for `map`.
+#' @param data Alternative way to specify elements.
 #' 
 #' @importFrom proto proto
 #' 
@@ -42,3 +45,4 @@ new_map <- function (..., data = list()) {
     data      <- function (., key = NULL) if (is.null(key)) .$values else .$values[[key]]
   })
 }
+

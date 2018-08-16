@@ -19,7 +19,14 @@ map_int(x, f, ...)
 
 map_lgl(x, f, ...)
 
-imap(lst, f, ...)
+imap(x, f, ...)
+}
+\arguments{
+\item{x}{Container.}
+
+\item{f}{Function.}
+
+\item{...}{Extra arguments for \code{f}.}
 }
 \description{
 Purrr-like API.
