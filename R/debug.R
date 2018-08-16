@@ -1,4 +1,7 @@
-# this function is called only from "test-debug.R"
+#' Simple test utility.
+#'
+#' @export
+#' @rdname internal
 test_guard <- function () guard()
 
 log <- function (level, ...) {
