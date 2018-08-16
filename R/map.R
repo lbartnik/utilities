@@ -1,4 +1,8 @@
 #' Purrr-like API.
+#'
+#' @param x Container.
+#' @param f Function.
+#' @param ... Extra arguments for `f`.
 #' 
 #' @export
 #' @rdname map
@@ -39,19 +43,20 @@ map_lgl <- function (x, f, ...) {
 
 #' @export
 #' @rdname map
-imap <- function (lst, f, ...) {
-  if (!length(lst)) return(list())
-  lst <- as.list(lst)
+imap <- function (x, f, ...) {
+  if (!length(x)) return(list())
+  x <- as.list(x)
   
-  if (is.null(names(lst))) {
-    nms <- seq_along(lst)
+  if (is.null(names(x))) {
+    nms <- seq_along(x)
   }
   else {
-    nms <- names(lst)
+    nms <- names(x)
   }
   
-  ans <- mapply(value = lst, name = nms, function (value, name) f(value, name, ...),
+  ans <- mapply(value = x, name = nms, function (value, name) f(value, name, ...),
                 SIMPLIFY = FALSE, USE.NAMES = FALSE)
   names(ans) <- nms
   ans
 }
+

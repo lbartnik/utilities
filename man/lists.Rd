@@ -3,12 +3,24 @@
 \name{combine}
 \alias{combine}
 \alias{join}
-\title{Operations on lists.}
+\title{Merge lists in order.}
 \usage{
 combine(...)
 
 join(x, sep)
 }
+\arguments{
+\item{...}{Lists to be merged.}
+
+\item{x}{Container of strings to concatenate.}
+
+\item{sep}{Separator.}
+}
+\value{
+A single, reduced \code{list}.
+}
 \description{
-Operations on lists.
+Merge lists in order.
+
+Concatenate multiple strings.
 }

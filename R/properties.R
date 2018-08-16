@@ -1,5 +1,8 @@
 #' Accessing properties.
 #' 
+#' @param x Object to be checked.
+#' @param name Name that `x` is supposed to have.
+#'
 #' @export
 #' @rdname properties
 has_name <- function (x, name) isTRUE(all(name %in% names(x)))
@@ -23,6 +26,8 @@ is_atomic_class <- function (x) isTRUE(x %in% c("numeric", "character", "integer
 #' @rdname properties
 is_recorded_plot <- function (x) inherits(x, 'recordedplot')
 
+#' @param i Index `x` is supposed to have.
+#'
 #' @export
 #' @rdname properties
 is_index_of <- function (i, x) {
@@ -30,6 +35,8 @@ is_index_of <- function (i, x) {
   i %in% names(x)
 }
 
+#' @param table Container where `x` is not supposed to be present.
+#'
 #' @export
 #' @rdname properties
 `%nin%` <- function (x, table) match(x, table, nomatch = 0L) == 0L
@@ -37,3 +44,4 @@ is_index_of <- function (i, x) {
 is_double_colon <- function (x) identical(x, quote(`::`))
 
 is_nonempty_string <- function (x) is.character(x) && identical(length(x), 1L) && nchar(x)
+

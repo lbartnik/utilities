@@ -1,4 +1,7 @@
-# this function is called only from "test-debug.R"
+#' Simple test utility.
+#'
+#' @export
+#' @rdname internal
 test_guard <- function () guard()
 
 log <- function (level, ...) {
@@ -7,12 +10,16 @@ log <- function (level, ...) {
 
 #' Debug utilities.
 #' 
+#' @param ... Parts of the message, concatenated with an empty string.
+#'
 #' @export
 #' @rdname debug
 dbg <- function (...) {
   if (isTRUE(getOption("utilities.debug"))) log("DEBUG", ...)
 }
 
+#' @param fname Optional name of the function `guard()` is called from.
+#'
 #' @export
 #' @rdname debug
 guard <- function (fname = NULL) {
@@ -36,8 +43,11 @@ guard <- function (fname = NULL) {
   invisible()
 }
 
+#' Stop if condition is met.
+#'
+#' @param ... Expression(s) that must evaluate to `FALSE`.
+#'
 #' @export
-#' @rdname debug
 stopif <- function (...) {
   i <- which(map_lgl(list(...), function(x)isTRUE(as.logical(x))))
   if (!length(i)) return(invisible(FALSE))
@@ -45,3 +55,4 @@ stopif <- function (...) {
   lb <- map_chr(mc[i+1], deparse)
   stop('following conditions are true: ', join(lb, ', '), call. = FALSE)
 }
+

@@ -15,6 +15,11 @@ first(x)
 
 second(x)
 }
+\arguments{
+\item{x}{Object to be indexed.}
+
+\item{n}{Index value.}
+}
 \description{
 Indexing.
 }

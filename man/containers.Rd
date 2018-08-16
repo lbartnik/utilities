@@ -9,6 +9,11 @@ new_vector(..., data = list())
 
 new_map(..., data = list())
 }
+\arguments{
+\item{...}{Elements for the container, named for \code{map}.}
+
+\item{data}{Alternative way to specify elements.}
+}
 \description{
 STL-like containers.
 }

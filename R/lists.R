@@ -1,4 +1,7 @@
-#' Operations on lists.
+#' Merge lists in order.
+#'
+#' @param ... Lists to be merged.
+#' @return A single, reduced `list`.
 #' 
 #' @export
 #' @rdname lists
@@ -12,8 +15,14 @@ combine <- function (...) {
   })
 }
 
+#' Concatenate multiple strings.
+#'
+#' @param x Container of strings to concatenate.
+#' @param sep Separator.
+#'
 #' @export
 #' @rdname lists
 join <- function (x, sep) {
-  paste(x, collapse = sep)
+  paste(unlist(x), collapse = sep)
 }
+
