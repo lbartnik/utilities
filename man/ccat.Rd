@@ -8,7 +8,7 @@
 \alias{cinform0}
 \title{Colored cat().}
 \usage{
-cat0(..., sep = "", default = "default")
+cat0(..., sep = "")
 
 ccat(..., sep = " ", default = "default")
 

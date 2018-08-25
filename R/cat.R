@@ -49,7 +49,7 @@ cpaste <- function (..., sep = ' ', default = "default")
 #'
 #' @export
 #' @rdname ccat
-cat0 <- function (..., sep = '', default = "default") cat(..., sep = sep, default = default)
+cat0 <- function (..., sep = '') cat(..., sep = sep)
 
 #' @export
 #' @rdname ccat
