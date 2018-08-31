@@ -46,3 +46,17 @@ new_map <- function (..., data = list()) {
   })
 }
 
+
+#' @importFrom proto proto
+#' 
+#' @export
+#' @rdname containers
+new_set <- function (..., data = list()) {
+  data <- choose_data(..., data = data)
+
+  proto(expr = {
+    values <- unique(data)
+    insert <- function (., value) { if (value %nin% .$values) .$values <- append(.$values, value) }
+    data   <- function (.) .$values
+  })
+}

@@ -8,3 +8,21 @@ test_that("vector erase", {
   expect_equal(v$size(), 9)
   expect_false(3L %in% v$data())
 })
+
+test_that("constructor makes elements unique", {
+  s <- new_set(1, 1, 2)
+  expect_equal(s$data(), as.list(1:2))
+})
+
+test_that("set holds unique elements", {
+  s <- new_set()
+  
+  s$insert(1)
+  expect_equal(s$data(), as.list(1))
+  
+  s$insert(1)
+  expect_equal(s$data(), as.list(1))
+  
+  s$insert(2)
+  expect_equal(s$data(), as.list(1:2))
+})
