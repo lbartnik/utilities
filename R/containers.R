@@ -56,7 +56,11 @@ new_set <- function (..., data = list()) {
 
   proto(expr = {
     values <- unique(data)
-    insert <- function (., value) { if (value %nin% .$values) .$values <- append(.$values, value) }
+    insert <- function (., values) {
+      lapply(values, function (value) {
+        if (value %nin% .$values) .$values <- append(.$values, value)
+      })
+    }
     data   <- function (.) .$values
   })
 }

@@ -26,3 +26,13 @@ test_that("set holds unique elements", {
   s$insert(2)
   expect_equal(s$data(), as.list(1:2))
 })
+
+test_that("set support inserting multiple elements", {
+  s <- new_set()
+  
+  s$insert(c(1,2))
+  expect_equal(s$data(), as.list(1:2))
+  
+  s$insert(c(1,2))
+  expect_equal(s$data(), as.list(1:2))
+})
