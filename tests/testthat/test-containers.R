@@ -14,6 +14,11 @@ test_that("constructor makes elements unique", {
   expect_equal(s$data(), as.list(1:2))
 })
 
+test_that("set size", {
+  s <- new_set(1, 2)
+  expect_equal(s$size(), 2)
+})
+
 test_that("set holds unique elements", {
   s <- new_set()
   
@@ -35,4 +40,25 @@ test_that("set support inserting multiple elements", {
   
   s$insert(c(1,2))
   expect_equal(s$data(), as.list(1:2))
+})
+
+test_that("set contains", {
+  s <- new_set(1, 2)
+  expect_true(s$contains(1))
+  expect_true(s$contains(2))
+  expect_false(s$contains(3))
+})
+
+test_that("set remove", {
+  s <- new_set(1, 2)
+  s$remove(1)  
+  expect_false(s$contains(1))
+  expect_true(s$contains(2))
+})
+
+test_that("set pop_front", {
+  s <- new_set(1, 2)
+  e <- s$pop_front()  
+  expect_false(s$contains(e))
+  expect_equal(s$size(), 1)
 })
