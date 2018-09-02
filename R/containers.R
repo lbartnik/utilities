@@ -46,3 +46,35 @@ new_map <- function (..., data = list()) {
   })
 }
 
+
+#' @importFrom proto proto
+#' 
+#' @export
+#' @rdname containers
+new_set <- function (..., data = list()) {
+  data <- choose_data(..., data = data)
+
+  proto(expr = {
+    values <- unique(data)
+    insert <- function (., values) {
+      lapply(values, function (value) {
+        if (value %nin% .$values) .$values <- append(.$values, value)
+      })
+    }
+    data   <- function (.) .$values
+    size   <- function (.) length(.$values)
+    contains <- function (., value) (value %in% .$values)
+    remove   <- function (., value) {
+      i <- match(value, .$values, nomatch = 0L)
+      if (!identical(i, 0L)) {
+        .$values <- .$values[-i]
+      }
+    }
+    pop_front <- function (.) {
+      if (!length(.$values)) return()
+      ans <- .$values[[1]]
+      .$values <- .$values[-1]
+      return(ans)
+    }
+  })
+}

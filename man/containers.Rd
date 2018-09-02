@@ -3,11 +3,14 @@
 \name{new_vector}
 \alias{new_vector}
 \alias{new_map}
+\alias{new_set}
 \title{STL-like containers.}
 \usage{
 new_vector(..., data = list())
 
 new_map(..., data = list())
+
+new_set(..., data = list())
 }
 \arguments{
 \item{...}{Elements for the container, named for \code{map}.}
