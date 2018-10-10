@@ -18,7 +18,7 @@ is_knitr <- function () getOption("knitr.in.progress", FALSE)
 #'
 #' @param package Package name; character or symbol.
 #'
-#' @importFrom rlang quo quo_text is_symbol as_character
+#' @importFrom rlang enquo quo_get_expr is_symbol is_character
 #' @rdname runtime
 #' @export
 #' @examples
@@ -27,13 +27,13 @@ is_knitr <- function () getOption("knitr.in.progress", FALSE)
 #'   try_load("dplyr")
 #' }
 try_load <- function (package) {
-  package <- quo(package)
+  package <- enquo(package)
 
-  name <- quo_expr(package)
-  if (is_symbol(name)) name <- as_character(name)
+  name <- quo_get_expr(package)
+  if (is_symbol(name)) name <- as.character(name)
   if (!is_character(name)) {
     abort(glue("cannot load package"))
   }
 
-  requireNamespace(name, quietly = TRUE)
+  as.logical(requireNamespace(name, quietly = TRUE))
 }
