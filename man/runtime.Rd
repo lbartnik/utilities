@@ -3,13 +3,28 @@
 \name{runtime}
 \alias{runtime}
 \alias{is_knitr}
+\alias{try_load}
 \title{Runtime checks.}
 \usage{
 is_knitr()
+
+try_load(package)
+}
+\arguments{
+\item{package}{Package name; character or symbol.}
 }
 \description{
 Runtime checks.
 
 \code{is_knitr} returns \code{TRUE} if invoked while knitr is
 compiling a document.
+
+\code{try_load} attempts to load package \code{package} and returns
+\code{TRUE} if succeeded; \code{FALSE} otherwise.
+}
+\examples{
+\dontrun{
+  try_load(dplyr)
+  try_load("dplyr")
+}
 }
