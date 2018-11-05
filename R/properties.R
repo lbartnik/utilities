@@ -1,5 +1,5 @@
 #' Accessing properties.
-#' 
+#'
 #' @param x Object to be checked.
 #' @param name Name that `x` is supposed to have.
 #'
@@ -45,3 +45,11 @@ is_double_colon <- function (x) identical(x, quote(`::`))
 
 is_nonempty_string <- function (x) is.character(x) && identical(length(x), 1L) && nchar(x)
 
+
+#' @description `is_rstudio` returns `TRUE` if is called inside RStudio.
+#'
+#' @export
+#' @rdname properties
+is_rstudio <- function () {
+  requireNamespace('rstudioapi', quietly = TRUE) && rstudioapi::isAvailable()
+}
