@@ -14,8 +14,6 @@ try_load(package)
 \item{package}{Package name; character or symbol.}
 }
 \description{
-Runtime checks.
-
 \code{is_knitr} returns \code{TRUE} if invoked while knitr is
 compiling a document.
 
