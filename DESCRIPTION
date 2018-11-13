@@ -17,6 +17,8 @@ Imports:
   stringi
 Suggests:
   devtools,
+  fansi,
+  htmltools,
   knitr,
   rstudioapi,
   testthat
@@ -26,11 +28,13 @@ Collate:
   'debug.R'
   'defaults.R'
   'indexing.R'
+  'knitr.R'
   'lists.R'
   'map.R'
   'names.R'
   'properties.R'
   'runtime.R'
 VignetteBuilder: knitr
+Encoding: UTF-8
 RoxygenNote: 6.1.0
 Roxygen: list(markdown = TRUE)
