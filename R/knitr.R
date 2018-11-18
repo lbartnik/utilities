@@ -35,6 +35,7 @@ ansi_handler <- function(x, options){
 #' @param output_hook `knitr`'s output hook used to print the
 #'        transformed output.
 #'
+#' @importFrom utils head
 #' @export
 #' @rdname knitr
 #'
