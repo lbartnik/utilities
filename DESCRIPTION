@@ -24,7 +24,8 @@ Suggests:
   testthat
 Collate:
   'cat.R'
-  'containers.R'
+  'container.R'
+  'containers-stl.R'
   'debug.R'
   'defaults.R'
   'indexing.R'
