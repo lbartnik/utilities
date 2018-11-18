@@ -18,7 +18,8 @@ is_knitr <- function () getOption("knitr.in.progress", FALSE)
 #'
 #' @param package Package name; character or symbol.
 #'
-#' @importFrom rlang enquo quo_get_expr is_symbol is_character
+#' @importFrom rlang abort enquo quo_get_expr is_symbol is_character
+#' @importFrom glue glue
 #' @rdname runtime
 #' @export
 #' @examples

@@ -12,25 +12,31 @@ Depends:
   R (>= 3.5.0)
 Imports:
   crayon,
+  glue,
   proto,
   rlang,
   stringi
 Suggests:
   devtools,
+  fansi,
+  htmltools,
   knitr,
   rstudioapi,
   testthat
 Collate:
   'cat.R'
-  'containers.R'
+  'container.R'
+  'containers-stl.R'
   'debug.R'
   'defaults.R'
   'indexing.R'
+  'knitr.R'
   'lists.R'
   'map.R'
   'names.R'
   'properties.R'
   'runtime.R'
 VignetteBuilder: knitr
+Encoding: UTF-8
 RoxygenNote: 6.1.0
 Roxygen: list(markdown = TRUE)
