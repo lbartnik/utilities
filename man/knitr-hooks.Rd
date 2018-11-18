@@ -18,9 +18,9 @@ create_trimming_hook(output_hook)
 transformed output.}
 }
 \description{
-This is a callback for \link{knitr}.
+This is a callback for \code{knitr}.
 
-Creates an output callback function (hook) for \link{knitr}. When registered,
+Creates an output callback function (hook) for \code{knitr}. When registered,
 it gets triggered by the \code{output.lines} option passed in a \code{knitr}'s
 code snippet. See this \href{https://stackoverflow.com/questions/23114654/knitr-output-hook-with-an-output-lines-option-that-works-like-echo-26}{Stack Overflow}
 question for more details.

@@ -1,12 +1,12 @@
 #' Convert ANSI color codes to HTML tags.
 #'
-#' This is a callback for [knitr].
+#' This is a callback for `knitr`.
 #'
 #' @param x Text snippet.
 #' @param options options.
 #'
 #' @export
-#' @rdname knitr
+#' @rdname knitr-hooks
 #'
 #' @examples
 #' \dontrun{
@@ -27,7 +27,7 @@ ansi_handler <- function(x, options){
 
 #' Create an output hook for knitr.
 #'
-#' Creates an output callback function (hook) for [knitr]. When registered,
+#' Creates an output callback function (hook) for `knitr`. When registered,
 #' it gets triggered by the `output.lines` option passed in a `knitr`'s
 #' code snippet. See this \href{https://stackoverflow.com/questions/23114654/knitr-output-hook-with-an-output-lines-option-that-works-like-echo-26}{Stack Overflow}
 #' question for more details.
@@ -37,7 +37,7 @@ ansi_handler <- function(x, options){
 #'
 #' @importFrom utils head
 #' @export
-#' @rdname knitr
+#' @rdname knitr-hooks
 #'
 #' @examples
 #' \dontrun{
