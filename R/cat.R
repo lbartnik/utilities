@@ -85,30 +85,32 @@ cinform0 <- function (..., default = "default") cinform(..., sep = '', default =
 #'
 #' @importFrom rlang is_character
 #'
-#' @rdname colourize
+#' @rdname colorize
 #' @export
 #'
 #' @examples
-#' colourize("text with words", yellow = "with")
-#' colourize("longer text with many words", yellow = "text", red = "many")
-colourize <- function (text, ..., default = 'default') {
-  chunks <- list(...)
-  stopifnot(all(map_lgl(chunks, is_character)))
+#' colorize("text with words", yellow = "with")
+#' colorize("longer text with many words", yellow = "text", red = "many")
+colorize <- function (text, ..., default = 'default') colorize_(text, list(...), default)
 
-  pieces <- break_text(text, as.character(chunks))
+
+#' @param repl named vector or list; names are colors, values are substrings.
+#' @rdname colorize
+#' @export
+colorize_ <- function (text, repl, default = 'default') {
+  stopifnot(all(map_lgl(repl, is_character)))
+
+  pieces <- break_text(text, as.character(repl))
 
   colourized <- map_chr(pieces, function (piece) {
-    i <- match(piece, chunks, nomatch = 0L)
-    c <- if (identical(i, 0L)) default else names(chunks)[i]
+    i <- match(piece, repl, nomatch = 0L)
+    c <- if (identical(i, 0L)) default else names(repl)[i]
     cpaste(piece, default = c)
   })
 
   paste0(colourized, collapse = '')
 }
 
-#' @rdname colourize
-#' @export
-colorize <- colourize
 
 #' @importFrom stringi stri_split_fixed stri_detect_fixed
 break_text <- function (text, by) {
