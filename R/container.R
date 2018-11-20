@@ -25,9 +25,8 @@ print.container <- function (x, n = 3, ...) {
   n <- max(0, min(n, length(x)))
 
   if (n > 0) {
-    ccat0(default = 'grey', '# A container of ', length(x), ' element', if(n>1)'s', '\n')
-    lapply(x[seq(n-1)], function(y) { print(y); cat('\n') })
-    print(nth(x, n))
+    ccat0(default = 'grey', '# A container of ', length(x), ' element', if(n>1)'s')
+    lapply(x[seq(n)], function(y) { cat('\n'); print(y) })
     if (length(x) > n) {
       ccat0(default = 'grey', '# ... with ', length(x)-n, ' more element', if(n>1)'s', '\n')
     }
