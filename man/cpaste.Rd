@@ -16,3 +16,6 @@ cpaste(..., sep = " ", default = "default")
 \description{
 Colored cat.
 }
+\seealso{
+colourize
+}
