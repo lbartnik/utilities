@@ -4,16 +4,21 @@
 \alias{is_container}
 \alias{as_container}
 \alias{print.container}
+\alias{toString.container}
 \title{Abstract container.}
 \usage{
 is_container(x)
 
 as_container(x)
 
-\method{print}{container}(x, ...)
+\method{print}{container}(x, n = 3, ...)
+
+\method{toString}{container}(x, ...)
 }
 \arguments{
 \item{x}{object to be converted to a \code{container} or tested.}
+
+\item{n}{print that many elements}
 
 \item{...}{Arguments passed on to \code{base::print}
 \describe{
