@@ -25,10 +25,16 @@ print.container <- function (x, n = 3, ...) {
   n <- max(0, min(n, length(x)))
 
   if (n > 0) {
-    ccat0(default = 'grey', '# A container of ', length(x), ' element', if(n>1)'s')
-    lapply(x[seq(n)], function(y) { cat('\n'); print(y) })
-    if (length(x) > n) {
-      ccat0(default = 'grey', '# ... with ', length(x)-n, ' more element', if(n>1)'s', '\n')
+    # if pretty-printing makes sense
+    if (is_atomic_class(class(first(x))) || has_print(first(x))) {
+      ccat0(default = 'grey', '# A container of ', length(x), ' element', if(n>1)'s')
+
+      lapply(x[seq(n)], function(y) { cat('\n'); print(y) })
+      if (length(x) > n) {
+        ccat0(default = 'grey', '# ... with ', length(x)-n, ' more element', if(n>1)'s', '\n')
+      }
+    } else {
+      ccat(toString(x), grey = "\n# No print() method for element class")
     }
   } else {
     cat0(toString(x), '\n')
@@ -46,6 +52,6 @@ toString.container <- function (x, ...) {
 
   paste0('<container of ',
          n, if(n>1 && nc>1)'various ', ' element', if(n != 1)'s',
-         if(n>1 && nc==1)paste0(' of class ', names(c)),
+         if(n>0 && nc==1)paste0(' of class ', names(c)),
          '>')
 }

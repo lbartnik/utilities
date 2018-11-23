@@ -15,3 +15,7 @@ test_that("container can be printed", {
   expect_output_file(print(c), "expected-output/print-container.txt")
 })
 
+test_that("container with no print method", {
+  c <- as_container(list(structure(1, class = 'xyz')))
+  expect_output_file(print(c), "expected-output/print-container-no-print-method.txt")
+})

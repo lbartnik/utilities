@@ -53,3 +53,9 @@ is_nonempty_string <- function (x) is.character(x) && identical(length(x), 1L) &
 is_rstudio <- function () {
   requireNamespace('rstudioapi', quietly = TRUE) && rstudioapi::isAvailable()
 }
+
+#' @importFrom utils getS3method
+has_print <- function (x) {
+  is <- map_lgl(class(x), function (cx) !is.null(getS3method("print", cx, optional = TRUE)))
+  any(is)
+}
