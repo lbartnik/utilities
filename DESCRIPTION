@@ -27,6 +27,7 @@ Collate:
   'cat.R'
   'container.R'
   'containers-stl.R'
+  'counter.R'
   'debug.R'
   'defaults.R'
   'indexing.R'
