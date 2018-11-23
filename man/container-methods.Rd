@@ -10,6 +10,8 @@ container_sort(x, ..., decreasing = FALSE)
 \method{sort}{container}(x, decreasing = FALSE, ...)
 }
 \arguments{
+\item{x}{a container object; see \link{as_container}.}
+
 \item{...}{optional; extract these names from each element and use their
 values to sort.}
 

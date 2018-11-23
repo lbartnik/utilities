@@ -20,14 +20,11 @@ as_container(x)
 
 \item{n}{print that many elements}
 
-\item{...}{Arguments passed on to \code{base::print}
-\describe{
-  \item{x}{an object used to select a method.}
-}}
+\item{...}{arguments passed on to \link[base:print]{base::print} or \link[base:toString]{base::toString}}
 }
 \description{
 Used to store artifacts or commits.
 }
 \seealso{
-sort.container
+\link{container_sort}
 }

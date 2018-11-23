@@ -4,7 +4,7 @@
 #'
 #' @param x object to be converted to a `container` or tested.
 #'
-#' @seealso sort.container
+#' @seealso [container_sort]
 #'
 #' @export
 #' @rdname container
@@ -18,7 +18,7 @@ as_container <- function (x) {
 }
 
 #' @param n print that many elements
-#' @inheritDotParams base::print
+#' @param ... arguments passed on to [base::print] or [base::toString]
 #'
 #' @export
 #' @rdname container
@@ -61,6 +61,7 @@ toString.container <- function (x, ...) {
 
 #' Sort container.
 #'
+#' @param x a container object; see [as_container].
 #' @param decreasing logical; should the sort be decreasing or increasing?
 #' @param ... optional; extract these names from each element and use their
 #'        values to sort.
