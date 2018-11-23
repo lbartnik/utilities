@@ -36,5 +36,5 @@ try_load <- function (package) {
     abort(glue("cannot load package"))
   }
 
-  as.logical(suppressWarnings(require(name, character.only = TRUE, quietly = TRUE, warn.conflicts = FALSE)))
+  as.logical(suppressWarnings(requireNamespace(name, quietly = TRUE)))
 }

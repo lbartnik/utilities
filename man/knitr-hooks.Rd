@@ -3,7 +3,7 @@
 \name{ansi_handler}
 \alias{ansi_handler}
 \alias{create_trimming_hook}
-\title{Convert ANSI color codes to HTML tags.}
+\title{Callbacks for knitr.}
 \usage{
 ansi_handler(x, options)
 
@@ -18,11 +18,14 @@ create_trimming_hook(output_hook)
 transformed output.}
 }
 \description{
-This is a callback for \code{knitr}.
+\code{ansi_handler} converts ANSI color codes to HTML tags;
+this is the callback for \code{knitr}, see \link{ansi_to_html} for the actual
+implementation.
 
-Creates an output callback function (hook) for \code{knitr}. When registered,
-it gets triggered by the \code{output.lines} option passed in a \code{knitr}'s
-code snippet. See this \href{https://stackoverflow.com/questions/23114654/knitr-output-hook-with-an-output-lines-option-that-works-like-echo-26}{Stack Overflow}
+\code{create_trimming_hook} Creates an output callback
+function (hook) for \code{knitr}. When registered, it gets triggered by
+the \code{output.lines} option passed in a \code{knitr}'s code snippet. See this
+\href{https://stackoverflow.com/questions/23114654/knitr-output-hook-with-an-output-lines-option-that-works-like-echo-26}{Stack Overflow}
 question for more details.
 }
 \examples{
@@ -35,4 +38,7 @@ output_hook <- knit_hooks$get("output")
 trimming_hook <- create_trimming_hook(output_hook)
 knit_hooks$set(output = trimming_hook)
 }
+}
+\seealso{
+ansi_to_html
 }
