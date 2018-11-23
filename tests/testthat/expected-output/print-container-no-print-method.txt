@@ -1,0 +1,2 @@
+<container of 1 element of class xyz> 
+# No print() method for element class
