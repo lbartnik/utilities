@@ -15,11 +15,6 @@ counter(start = 0)
 \item{x}{an object used to select a method.}
 
 \item{...}{further arguments passed to or from other methods.}
-
-\item{...}{Arguments passed on to \code{base::print}
-\describe{
-  \item{x}{an object used to select a method.}
-}}
 }
 \value{
 A counter function, each call on which returns a subsequent

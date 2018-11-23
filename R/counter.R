@@ -22,7 +22,6 @@ counter <- function (start = 0) {
 }
 
 #' @inheritParams base::print
-#' @inheritDotParams base::print
 #'
 #' @export
 #' @rdname counter
