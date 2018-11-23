@@ -28,3 +28,6 @@ as_container(x)
 \description{
 Used to store artifacts or commits.
 }
+\seealso{
+sort.container
+}

@@ -4,6 +4,8 @@
 #'
 #' @param x object to be converted to a `container` or tested.
 #'
+#' @seealso sort.container
+#'
 #' @export
 #' @rdname container
 is_container <- function (x) inherits(x, 'container')
@@ -55,3 +57,37 @@ toString.container <- function (x, ...) {
          if(n>0 && nc==1)paste0(' of class ', names(c)),
          '>')
 }
+
+
+#' Sort container.
+#'
+#' @param decreasing logical; should the sort be decreasing or increasing?
+#' @param ... optional; extract these names from each element and use their
+#'        values to sort.
+#'
+#' @export
+#' @rdname container-methods
+#' @importFrom rlang quos
+#'
+#' @examples
+#' c <- as_container(list(list(time = 2), list(time = 1)))
+#' container_sort(c, time)
+#'
+#' c <- as_container(as.list(3:1))
+#' sort(c)
+container_sort <- function (x, ..., decreasing = FALSE) {
+  nms <- map_chr(quos(...), function(q) as.character(quo_get_expr(q)))
+  lapply(nms, function (n) {
+    if (!all(map_lgl(x, has_name, name = n))) {
+      abort(glue("name {n} not present in all objects"))
+    }
+    i <- order(unlist(lapply(x, `[[`, i = n)), decreasing = decreasing)
+    x <<- x[i]
+  })
+
+  as_container(x)
+}
+
+#' @export
+#' @rdname container-methods
+sort.container <- function (x, decreasing = FALSE, ...) container_sort(x, ..., decreasing = decreasing)

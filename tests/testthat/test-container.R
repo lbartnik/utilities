@@ -19,3 +19,12 @@ test_that("container with no print method", {
   c <- as_container(list(structure(1, class = 'xyz')))
   expect_output_file(print(c), "expected-output/print-container-no-print-method.txt")
 })
+
+test_that("sort container", {
+  c <- as_container(list(list(time = 5), list(time = 2), list(time = 1)))
+  x <- container_sort(c, time)
+  expect_equal(map_int(x, `[[`, 'time'), c(1, 2, 5))
+
+  y <- sort(c, decreasing = FALSE, time)
+  expect_equal(y, x)
+})
