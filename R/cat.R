@@ -113,6 +113,7 @@ colorize_ <- function (text, repl, default = 'default') {
 
 
 #' @importFrom stringi stri_split_fixed stri_detect_fixed
+#' @importFrom utils tail
 break_text <- function (text, by) {
   stopifnot(identical(unique(by), by))
 
