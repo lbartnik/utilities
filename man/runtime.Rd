@@ -4,14 +4,25 @@
 \alias{runtime}
 \alias{is_knitr}
 \alias{try_load}
+\alias{is_rstudio}
+\alias{set_invisible}
+\alias{is_visible}
 \title{Runtime checks.}
 \usage{
 is_knitr()
 
 try_load(package)
+
+is_rstudio()
+
+set_invisible(x)
+
+is_visible(x)
 }
 \arguments{
 \item{package}{Package name; character or symbol.}
+
+\item{x}{object to set or retrieve the attribute from.}
 }
 \description{
 \code{is_knitr} returns \code{TRUE} if invoked while knitr is
@@ -19,6 +30,12 @@ compiling a document.
 
 \code{try_load} attempts to load package \code{package} and returns
 \code{TRUE} if succeeded; \code{FALSE} otherwise.
+
+\code{is_rstudio} returns \code{TRUE} if is called inside RStudio.
+
+\code{set_invisible} and \code{is_visible} add and read, respectively,
+the \code{"visible"} attribute to its argument. This can be used to prevent
+printing objects returned from the dollar-sign operator \code{$}.
 }
 \examples{
 \dontrun{
