@@ -3,7 +3,7 @@
 #' @param x Container.
 #' @param f Function.
 #' @param ... Extra arguments for `f`.
-#' 
+#'
 #' @export
 #' @rdname map
 map <- function (x, f, ...) {
@@ -46,17 +46,35 @@ map_lgl <- function (x, f, ...) {
 imap <- function (x, f, ...) {
   if (!length(x)) return(list())
   x <- as.list(x)
-  
+
   if (is.null(names(x))) {
     nms <- seq_along(x)
   }
   else {
     nms <- names(x)
   }
-  
+
   ans <- mapply(value = x, name = nms, function (value, name) f(value, name, ...),
                 SIMPLIFY = FALSE, USE.NAMES = FALSE)
   names(ans) <- nms
   ans
 }
 
+
+#' Mapping helpers.
+#'
+#' @param f function
+#'
+#' @seealso [utilities::map]
+#' @rdname map-helpers
+#' @name map-helpers
+NULL
+
+#' @description `not` creates a function that returns the negated value
+#' of `f` called with the same list of arguments.
+#'
+#' @export
+#' @rdname map-helpers
+not <- function (f) {
+  function(...)!as.logical(f(...))
+}
