@@ -38,3 +38,12 @@ try_load <- function (package) {
 
   as.logical(suppressWarnings(requireNamespace(name, quietly = TRUE)))
 }
+
+
+#' @description `is_rstudio` returns `TRUE` if is called inside RStudio.
+#'
+#' @export
+#' @rdname runtime
+is_rstudio <- function () {
+  requireNamespace('rstudioapi', quietly = TRUE) && rstudioapi::isAvailable()
+}

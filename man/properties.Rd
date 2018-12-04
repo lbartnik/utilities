@@ -8,7 +8,6 @@
 \alias{is_recorded_plot}
 \alias{is_index_of}
 \alias{\%nin\%}
-\alias{is_rstudio}
 \title{Accessing properties.}
 \usage{
 has_name(x, name)
@@ -24,8 +23,6 @@ is_recorded_plot(x)
 is_index_of(i, x)
 
 x \%nin\% table
-
-is_rstudio()
 }
 \arguments{
 \item{x}{Object to be checked.}
@@ -37,5 +34,5 @@ is_rstudio()
 \item{table}{Container where \code{x} is not supposed to be present.}
 }
 \description{
-\code{is_rstudio} returns \code{TRUE} if is called inside RStudio.
+Accessing properties.
 }

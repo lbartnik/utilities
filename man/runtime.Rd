@@ -4,11 +4,14 @@
 \alias{runtime}
 \alias{is_knitr}
 \alias{try_load}
+\alias{is_rstudio}
 \title{Runtime checks.}
 \usage{
 is_knitr()
 
 try_load(package)
+
+is_rstudio()
 }
 \arguments{
 \item{package}{Package name; character or symbol.}
@@ -19,6 +22,8 @@ compiling a document.
 
 \code{try_load} attempts to load package \code{package} and returns
 \code{TRUE} if succeeded; \code{FALSE} otherwise.
+
+\code{is_rstudio} returns \code{TRUE} if is called inside RStudio.
 }
 \examples{
 \dontrun{
