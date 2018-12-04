@@ -3,7 +3,7 @@ context("map")
 test_that("map assigns names", {
   x <- map(list(a = 1), I)
   expect_named(x, 'a')
-  
+
   x <- map('a', I)
   expect_named(x, 'a')
 })
@@ -17,7 +17,16 @@ test_that("imap passes names and values", {
   })
 })
 
-
 test_that("imap handles edge cases", {
   expect_length(imap(NULL, print), 0)
+})
+
+test_that("not negates", {
+  f <- not(is.null)
+  expect_false(f(NULL))
+  expect_true(f(1))
+
+  f <- not(function(x)identical(x, 1L))
+  expect_false(f(1L))
+  expect_true(f(2L))
 })
