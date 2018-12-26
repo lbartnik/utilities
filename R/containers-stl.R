@@ -12,9 +12,9 @@ choose_data <- function (..., data) {
 #'
 #' @param ... Elements for the container, named for `map`.
 #' @param data Alternative way to specify elements.
-#' 
+#'
 #' @importFrom proto proto
-#' 
+#'
 #' @export
 #' @rdname containers
 new_vector <- function (..., data = list()) {
@@ -31,24 +31,31 @@ new_vector <- function (..., data = list()) {
 }
 
 #' @importFrom proto proto
-#' 
+#'
 #' @export
 #' @rdname containers
 new_map <- function (..., data = list()) {
   data <- choose_data(..., data = data)
   stopifnot(is_all_named(data))
-  
+
   proto(expr = {
     values <- data
     assign <- function (., key, value) { .$values[[key]] <- value }
     erase  <- function (., key) { .$values[[key]] <- NULL }
-    data      <- function (., key = NULL) if (is.null(key)) .$values else .$values[[key]]
+    data   <- function (., key = NULL) if (is.null(key)) .$values else .$values[[key]]
+    at     <- function (., key, default = NULL) {
+      if (is.null(.$values[[key]])) {
+        if (is.null(default)) stop(paste0("key '", toString(key), "' not found in map"))
+        .$values[[key]] <- default
+      }
+      .$values[[key]]
+    }
   })
 }
 
 
 #' @importFrom proto proto
-#' 
+#'
 #' @export
 #' @rdname containers
 new_set <- function (..., data = list()) {
